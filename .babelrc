@@ -1,0 +1,45 @@
+{
+  "env": {
+    "development": {
+      "presets": ["next/babel"],
+      "plugins": [
+        [
+          "styled-components",
+          {
+            "ssr": true,
+            "displayName": true,
+            "preprocess": false
+          }
+        ],
+        [
+          "inline-react-svg",
+          {
+            "svgo": {
+              "plugins": [
+                {
+                  "removeAttrs": { "attrs": "(data-name)" }
+                },
+                {
+                  "cleanupIDs": true
+                }
+              ]
+            }
+          }
+        ],
+        ["babel-plugin-root-import"]
+      ]
+    },
+    "production": {
+      "presets": ["next/babel"],
+      "plugins": [
+        [
+          "styled-components",
+          {
+            "ssr": true,
+            "pure": true
+          }
+        ]
+      ]
+    }
+  }
+}
