@@ -2,13 +2,13 @@ import React, { ReactNode } from 'react'
 import styled from 'styled-components'
 import { Styles } from '../../styles/base'
 
-import Dribbble from '../../assets/svg/dribbble.svg'
+//import Dribbble from '../../assets/svg/dribbble.svg'
 import Facebook from '../../assets/svg/facebook.svg'
-import Github from '../../assets/svg/github.svg'
+//import Github from '../../assets/svg/github.svg'
 import Instagram from '../../assets/svg/instagram.svg'
-import Linkedin from '../../assets/svg/linkedin.svg'
-import Twitter from '../../assets/svg/twitter.svg'
-import Logo from '../../assets/svg/ueno-logo.svg'
+//import Linkedin from '../../assets/svg/linkedin.svg'
+//import Twitter from '../../assets/svg/twitter.svg'
+
 import SearchIcon from '../../assets/svg/searchIcon.svg';
 
 import { Footer } from '../footer/Footer'
@@ -38,21 +38,16 @@ export const AppLayout = ({ children }: AppLayoutProps) => (
         <HeaderLink name="Sobre" href="/sobre" />
         <HeaderLink name="Contato" href="/contato" />
         <HeaderLink name="Busca" href="#" icon={<SearchIcon />} />
-        <HeaderLink name="" href="https://instagram.com/ravacycle/" icon={<Instagram />} />
-        <HeaderLink name="" href="https://www.facebook.com/ravacycle" icon={<Facebook />} />
+        <HeaderLink name="" href='https://instagram.com/ravacycle' icon={<Instagram />} />
+        <HeaderLink name="" href='https://facebook.com/ravacycle' icon={<Facebook />} />
       </Header>
 
       {children}
 
       <Footer
-        logo={<Logo />}
         social={[
-          { icon: <Dribbble />, to: 'https://dribbble.com/ueno' },
-          { icon: <Twitter />, to: 'https://twitter.com/uenodotco' },
-          { icon: <Github />, to: 'https://github.com/ueno-llc' },
-          { icon: <Instagram />, to: 'https://www.instagram.com/uenodotco' },
-          { icon: <Facebook />, to: 'https://www.facebook.com/uenodotco' },
-          { icon: <Linkedin />, to: 'https://www.linkedin.com/company/ueno' }
+          { icon: <Instagram />, to: 'https://instagram.com/ravacycle' },
+          { icon: <Facebook />, to: 'https://facebook.com/ravacycle' },
         ]}
       />
 

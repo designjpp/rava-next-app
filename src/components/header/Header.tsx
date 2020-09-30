@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react'
 //import Link from 'next/link'
 import styled from 'styled-components'
-import Link from '../link/Link' 
+import Link from '../link/Link'
 
 import StarterLogo from '../../assets/svg/marca.svg'
 
@@ -14,13 +14,12 @@ interface HeaderProps {
 
 export const Header = ({ children }: HeaderProps) => (
   <HeaderRoot>
-      <Content>
-        <LogoLink to="/" aria-label="Rava Cycle"
-          title="Voltar a página inicial">
-            <Logo />
-        </LogoLink>
-      </Content>
-      <Navigation>{children}</Navigation>
+    <Content>
+      <LogoLink to="/" aria-label="Rava Cycle" title="Voltar a página inicial">
+        <Logo />
+      </LogoLink>
+    </Content>
+    <Navigation>{children}</Navigation>
   </HeaderRoot>
 )
 
@@ -58,16 +57,16 @@ const HeaderRoot = styled.header`
     width: calc(4vw / 2);
     height: inherit;
     position: absolute;
-    transform: translate(0,0);
+    transform: translate(0, 0);
     right: 0;
     height: 100%;
   }
-`;
+`
 
 const Content = styled.div`
   align-items: stretch;
   display: flex;
-  
+
   @supports (display: grid) {
     align-items: stretch;
     grid-column-start: 2;
@@ -77,14 +76,14 @@ const Content = styled.div`
     grid-column-start: 2;
     grid-column-end: 8;
   }
-`;
+`
 const LogoLink = styled(Link)`
   position: relative;
   display: flex;
 
   :before {
     content: '';
-    background: var(--primary-300);;
+    background: var(--primary-300);
     display: block;
     content: '';
     width: 300px;
@@ -93,18 +92,19 @@ const LogoLink = styled(Link)`
     transform: translate(-25%, 0);
     height: 100%;
   }
-`;
+`
 
 const Logo = styled(StarterLogo)`
   display: block;
-  width: 100%;
   margin: auto;
+  height: 45px;
   position: relative;
-`;
+  path:first-child {
+    fill: var(--color-bg);
+  }
+`
 
 const Navigation = styled.div`
-  /*display: flex;
-  margin-left: auto;*/
   align-items: center;
   display: flex;
   flex-grow: 1;
@@ -114,4 +114,4 @@ const Navigation = styled.div`
   grid-column-start: 18;
   grid-column-end: 30;
   justify-content: flex-end;
-`;
+`
