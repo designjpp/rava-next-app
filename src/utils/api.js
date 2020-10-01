@@ -31,3 +31,8 @@ export async function getAllPostsForHome() {
   const data = await fetchAPI("products?brand=1889")
   return data
 }
+
+export async function getAllProduct() {
+  const data = await fetchAPI("products?brand=1889&per_page=20")
+  return data
+}

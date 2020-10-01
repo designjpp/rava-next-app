@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import SwiperCore, { Scrollbar, Navigation } from 'swiper'
 import styled from 'styled-components'
 import Link from '../link/Link'
-
+import Instagram from '../../assets/svg/instagram.svg'
 import { SwiperStyle } from '../../styles/Swiper'
 
 SwiperCore.use([Scrollbar, Navigation])
@@ -29,7 +29,7 @@ export const InstagramFeed = ({ feed }) => (
       </Swiper>
     </SwiperStylelWrap>
     <CarouselTitleWrap>
-      <Player />
+      <Player><PlayerIcon /></Player>
       <HeroTitle>Siga a @RavaCycle</HeroTitle>
       <HeroSubTitle>No instagram</HeroSubTitle>
     </CarouselTitleWrap>
@@ -83,13 +83,23 @@ const Img = styled.img`
 `
 
 const Player = styled.div`
-  display: block;
   width: 225px;
   height: 225px;
   background: var(--primary-300);
   grid-area: 1 / 1 / 5 / 2;
   border-radius: var(--border-radius-circle);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `
+const PlayerIcon = styled(Instagram)`
+  height: 80px;
+  width: 80px;
+  max-width: 100%;
+  vertical-align: middle;
+  display: inline-block;
+`
+
 const HeroTitle = styled.h2`
   grid-area: 3 / 2 / 4 / 3;
   font-family: var(--font-title);
