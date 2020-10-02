@@ -38,7 +38,23 @@
             "ssr": true,
             "pure": true
           }
-        ]
+        ],
+        [
+          "inline-react-svg",
+          {
+            "svgo": {
+              "plugins": [
+                {
+                  "removeAttrs": { "attrs": "(data-name)" }
+                },
+                {
+                  "cleanupIDs": true
+                }
+              ]
+            }
+          }
+        ],
+        ["babel-plugin-root-import"]
       ]
     }
   }
