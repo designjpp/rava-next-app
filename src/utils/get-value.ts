@@ -1,6 +1,6 @@
 import { math } from 'polished'
 
-import { variables } from '../styles/variables'
+import { variables } from 'styles/variables'
 
 export const getValue = (
   nbr: string | number | undefined,

@@ -1,20 +1,15 @@
 import React, { ReactNode } from 'react'
 import styled from 'styled-components'
-import { Styles } from '../../styles/base'
+import { Styles } from 'styles/base'
 
-//import Dribbble from '../../assets/svg/dribbble.svg'
 import Facebook from '../../assets/svg/facebook.svg'
-//import Github from '../../assets/svg/github.svg'
 import Instagram from '../../assets/svg/instagram.svg'
-//import Linkedin from '../../assets/svg/linkedin.svg'
-//import Twitter from '../../assets/svg/twitter.svg'
-
 import SearchIcon from '../../assets/svg/searchIcon.svg'
 
-import { Footer } from '../footer/Footer'
-import { Header } from '../header/Header'
-import { HeaderLink } from '../header/HeaderLink'
-import { Devtools } from '../devtools/Devtools'
+import { Footer } from 'components/footer/Footer'
+import { Header } from 'components/header/Header'
+import { HeaderLink } from 'components/header/HeaderLink'
+import { Devtools } from 'components/devtools/Devtools'
 
 interface AppLayoutProps {
   children: ReactNode

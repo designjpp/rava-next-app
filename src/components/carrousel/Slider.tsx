@@ -30,9 +30,15 @@ export const ProductSlider = ({ products }: any) => {
           //mousewheel: true,
           scrollbar={{ hide: false }}
         >
-          {products.map(({ name, id, images, categories }) => (
+          {products.map(({ name, id, images, categories, slug }) => (
             <SwiperSlide key={id}>
-              <Slider name={name} images={images} categories={categories} />
+              <Slider
+                id={id}
+                name={name}
+                images={images}
+                categories={categories}
+                slug={slug}
+              />
             </SwiperSlide>
           ))}
         </Swiper>

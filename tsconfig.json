@@ -1,8 +1,11 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
+    "baseUrl": "./src",
+    "paths": {
+      "@images/*": ["images/*"]
+    },
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
@@ -16,5 +19,5 @@
     "jsx": "preserve"
   },
   "exclude": ["node_modules"],
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "utils/api.js"]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
 }

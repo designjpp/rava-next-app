@@ -1,9 +1,9 @@
 import Head from 'next/head'
 import React from 'react'
 
-import { Intro } from '../components/intro/Intro'
+import { Intro } from 'components/intro/Intro'
 
-function About() {
+function Product() {
   return (
     <>
       <Head>
@@ -14,4 +14,4 @@ function About() {
   )
 }
 
-export default About
+export default Product

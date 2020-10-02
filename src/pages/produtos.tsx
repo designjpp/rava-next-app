@@ -12,7 +12,7 @@ import {
 } from 'react-instantsearch-dom'
 import styled from 'styled-components'
 //import { getAllProduct } from '../utils/api'
-import { Intro } from '../components/intro/Intro'
+import { Intro } from 'components/intro/Intro'
 
 // const searchClient = algoliasearch(`${process.env.ALGOLIA_APP_ID}`, `${process.env.ALGOLIA_SEARCH_KEY}`)
 const searchClient = algoliasearch(

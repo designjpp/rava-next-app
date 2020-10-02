@@ -1,23 +1,43 @@
 // Import Swiper React components
 import React from 'react'
 import styled from 'styled-components'
-import Link from '../link/Link'
+import Link from 'next/link'
 
 interface SliderProps {
   name: string
   categories: object
   images: object
+  id: number
+  slug: string
 }
 
-export const Slider = ({ name, images, categories }: SliderProps) => (
+export const Slider = ({ name, images, categories, id, slug }: SliderProps) => (
   <Slide>
-    <Img
-      src={images[0].src.replace('scaled.jpg', '800x800.jpg')}
-      alt={images[0].alt}
-    />
-    <Title>{name}</Title>
+    <Link href="/produto/[slug]" as={`/produto/${slug}`}>
+      <a>
+        <Img
+          src={images[0].src.replace('scaled.jpg', '800x800.jpg')}
+          alt={images[0].alt}
+        />
+      </a>
+    </Link>
+    <Link href="/produto/[slug]" as={`/produto/${slug}`}>
+      <a>
+        <Title>{name}</Title>
+      </a>
+    </Link>
     <Category>
-      {categories[0].name} / {categories[1].name}
+      <Link
+        href={`/produtos?refinementList%5Btaxonomies.product_cat%5D%5B0%5D=${categories[0].name}`}
+      >
+        <a>{categories[0].name}</a>
+      </Link>{' '}
+      /
+      <Link
+        href={`/produtos?refinementList%5Btaxonomies.product_cat%5D%5B0%5D=${categories[1].name}`}
+      >
+        <a>{categories[1].name}</a>
+      </Link>
     </Category>
   </Slide>
 )
