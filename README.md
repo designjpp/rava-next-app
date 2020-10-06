@@ -1,45 +1,27 @@
-[![logo](https://user-images.githubusercontent.com/937328/52721449-9b1b2b80-2fa1-11e9-8f10-84dd86eb652b.png)](https://ueno.co/?utm_source=github&utm_campaign=ueno-next-starter)
-<br /><br />
-![banner](https://user-images.githubusercontent.com/937328/53875813-52cdb700-3ffd-11e9-8585-665eb28707a6.png)
-<br /><br />
-[![about](https://user-images.githubusercontent.com/937328/51540139-999c8e80-1e4d-11e9-866d-284657a34744.png)](https://ueno.co/contact/?utm_source=github&utm_campaign=ueno-next-starter)
-<br /><br />
+# Rava Cycle Site Institucional
 
-## Ueno Next Starter
+Next.js has built-in support for [CSS Modules](https://nextjs.org/docs/basic-features/built-in-css-support#adding-component-level-css) allowing you to write scoped CSS by automatically creating a unique class name. CSS Module files can be imported anywhere in your application and you don't have to worry about collisions.
 
-This starter kit is based on `create-next-app` and add couple of features that we are using on all of our projects.
+## Deploy your own
 
-- Server side rendering
-- Code splitting
-- styled-components
-- Typescript
+Deploy the example using [Vercel](https://vercel.com):
 
-### Usage with [create-ueno-app](https://github.com/ueno-llc/create-ueno-app):
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/vercel/next.js/tree/canary/examples/basic-css)
+
+## How to use
+
+Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init) or [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/) to bootstrap the example:
 
 ```bash
-npx create-ueno-app next my-app
+npx create-next-app --example basic-css basic-css-app
+# or
+yarn create next-app --example basic-css basic-css-app
 ```
 
-or
+### Deploy
 
-```bash
-yarn create ueno-app next my-app
-```
+Deploy it to the cloud with [Vercel](https://vercel.com/import?filter=next.js&utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
 
-<details>
-  <summary>Alternative setup</summary>
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
 
-You can also cloning this repository but you will have to change and add few files manually.
-
-```bash
-git clone "https://github.com/ueno-llc/ueno-next-starter#master" my-app
-```
-
-### Branches
-
-We have two branches:
-
-- `master` supports `sass` styles
-- `styled` branch support `styled-components`
-
-Refers to `create-ueno-app` document for more information on the different usage
+[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
