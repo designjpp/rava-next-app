@@ -1,6 +1,6 @@
 import React from 'react'
 import Head from 'next/head'
-import { GetStaticProps } from 'next'
+import { GetServerSideProps } from 'next'
 
 import { LandingPageProps } from '../types/api'
 import { getAllPostsForHome } from '../utils/api'
@@ -30,7 +30,7 @@ const Index = ({ allPosts, instaFeed }: LandingPageProps) => (
   </>
 )
 //export async function getStaticProps() {}
-export const getStaticProps: GetStaticProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const allPosts = await getAllPostsForHome()
 
   const instaFeed = await Instagram.getFeed()
