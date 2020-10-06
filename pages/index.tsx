@@ -2,19 +2,19 @@ import React from 'react'
 import Head from 'next/head'
 import { GetStaticProps } from 'next'
 
-import { LandingPageProps } from 'types/api'
-import { getAllPostsForHome } from 'utils/api'
+import { LandingPageProps } from '../types/api'
+import { getAllPostsForHome } from '../utils/api'
 
 //import { BlockText } from '../components/block-text/BlockText'
 //import { Highlight } from '../components/intro/Highlight'
 //import { Intro } from '../components/intro/Intro'
 
-import { Hero } from 'components/Hero/Hero'
+import { Hero } from '../components/Hero/Hero'
 
-import { ProductSlider } from 'components/carrousel/Slider'
+import { ProductSlider } from '../components/carrousel/Slider'
 
-import Instagram from 'utils/Instagram'
-import { InstagramFeed } from 'components/instagramfeed/Feed'
+import Instagram from '../utils/Instagram'
+import { InstagramFeed } from '../components/instagramfeed/Feed'
 
 const Index = ({ allPosts, instaFeed }: LandingPageProps) => (
   <>

@@ -23,36 +23,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "develop": "ts-node-dev --transpileOnly --project src/tsconfig.json --compiler-options '{\"module\":\"commonjs\"}' --no-notify --ignore-watch .next src/server",
     "building": "next build src && tsc --project src/tsconfig.json",
+    "develop": "ts-node-dev --transpileOnly --project src/tsconfig.json --compiler-options '{\"module\":\"commonjs\"}' --no-notify --ignore-watch",
     "starting": "cross-env NODE_ENV=production next start build",
-    "export": "next export -o ./dist src",
-    "lint": "npm run prettier && npm run tslint && npm run stylelint",
-    "tslint": "tslint --fix 'src/**/*.{ts,tsx}' --project src/tsconfig.json",
-    "stylelint": "stylelint 'src/**/*.{ts,tsx}'",
-    "prettier": "prettier --list-different '**/*.{ts,tsx,js,jsx,json,md}'"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.{ts,tsx,js,jsx,json,md}": [
-      "prettier --write"
-    ],
-    "*.{ts,tsx}": [
-      "tslint --fix"
-    ]
-  },
-  "stylelint": {
-    "processors": [
-      "stylelint-processor-styled-components"
-    ],
-    "extends": [
-      "stylelint-config-recommended",
-      "stylelint-config-styled-components"
-    ]
+    "export": "next export -o ./dist src"
   },
   "dependencies": {
     "@woocommerce/woocommerce-rest-api": "^1.0.1",

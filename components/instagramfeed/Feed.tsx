@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import SwiperCore, { Scrollbar, Navigation } from 'swiper'
 import styled from 'styled-components'
 import Link from '../link/Link'
-import Instagram from '../../assets/svg/instagram.svg'
+import Instagram from '../../public/svg/instagram.svg'
 import { SwiperStyle } from '../../styles/Swiper'
 
 SwiperCore.use([Scrollbar, Navigation])

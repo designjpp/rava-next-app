@@ -3,9 +3,9 @@ import styled from 'styled-components'
 import Link from '../link/Link'
 //import { Container } from '../container/Container'
 import { FooterMenu } from './FooterLink'
-import Logo from '../../assets/svg/marca.svg'
-import FooterHero from '../../assets/svg/Hero.svg'
-import JppLogo from '../../assets/svg/jpp.svg'
+import Logo from '../../public/svg/marca.svg'
+import FooterHero from '../../public/svg/Hero.svg'
+import JppLogo from '../../public/svg/jpp.svg'
 
 interface Social {
   icon: ReactNode

@@ -5,8 +5,8 @@ import { GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next'
 import { useRouter } from 'next/router'
 import styled from 'styled-components'
 
-import { Intro } from 'components/intro/Intro'
-import { getAllProduct, getProductId } from 'utils/api'
+import { Intro } from '../../components/intro/Intro'
+import { getAllProduct, getProductId } from '../../utils/api'
 
 const Product = ({ product }) => {
   //const router = useRouter()
@@ -56,24 +56,17 @@ const Product = ({ product }) => {
     </>
   )
 }
-
-export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = await getAllProduct()
-
-  const slugs = posts.map((post) => post.slug)
-
-  //console.log(slugs)
-
-  const paths = slugs.map((slug) => ({
-    params: { slug }
-  }))
-
+export const getServerSideProps: GetServerSideProps = async ({ params: { slug } }) => {
+  const product = await getProductId(slug)
+  //console.log(`slug ${posts}`)
+  //const product = posts.find((x) => x.lug === slug)
   return {
-    paths,
-    fallback: true
+    props: {
+      product
+    }
   }
 }
-
+/*
 export const getStaticProps: GetStaticProps = async ({ params: { slug } }) => {
   const product = await getProductId(slug)
   //console.log(`slug ${posts}`)
@@ -84,6 +77,29 @@ export const getStaticProps: GetStaticProps = async ({ params: { slug } }) => {
     }
   }
 }
+
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const posts = await getAllProduct()
+
+  //const slugs = posts.map((post) => post.slug)
+
+  //console.log(slugs)
+
+  //const paths = slugs.map((slug) => ({
+  //  params: { slug }
+  //}))
+
+  return {
+    paths: posts.map((post) => ({
+      params: {
+        slug: post.slug,
+      },
+    })) || [],
+    fallback: true
+  }
+}*/
+
 
 export default Product
 

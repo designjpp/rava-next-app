@@ -3,9 +3,9 @@ import React, { ReactNode } from 'react'
 import styled from 'styled-components'
 import Link from '../link/Link'
 
-import StarterLogo from '../../assets/svg/marca.svg'
+import StarterLogo from '../../public/svg/marca.svg'
 
-import { breakpoints, variables } from '../../styles/variables'
+//import { breakpoints, variables } from '../../styles/variables'
 //import { Container } from '../container/Container'
 
 interface HeaderProps {

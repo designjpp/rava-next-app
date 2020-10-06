@@ -1,9 +1,9 @@
 import Head from 'next/head'
 import React from 'react'
 
-import { Intro } from 'components/intro/Intro'
+import { Intro } from '../components/intro/Intro'
 
-function Contact() {
+function About() {
   return (
     <>
       <Head>
@@ -14,4 +14,4 @@ function Contact() {
   )
 }
 
-export default Contact
+export default About

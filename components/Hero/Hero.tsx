@@ -2,9 +2,9 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import Img from '../../assets/images/herobg.png'
-import HeroSVG from '../../assets/svg/Hero.svg'
-import PlayerSvg from '../../assets/svg/player.svg'
+import Img from '../../public/images/herobg.png'
+import HeroSVG from '../../public/svg/Hero.svg'
+import PlayerSvg from '../../public/svg/player.svg'
 
 export const Hero = () => (
   <Wrapper>

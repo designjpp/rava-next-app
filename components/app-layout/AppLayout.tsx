@@ -1,15 +1,15 @@
 import React, { ReactNode } from 'react'
 import styled from 'styled-components'
-import { Styles } from 'styles/base'
+import { Styles } from '../../styles/base'
 
-import Facebook from '../../assets/svg/facebook.svg'
-import Instagram from '../../assets/svg/instagram.svg'
-import SearchIcon from '../../assets/svg/searchIcon.svg'
+import Facebook from '../../public/svg/facebook.svg'
+import Instagram from '../../public/svg/instagram.svg'
+import SearchIcon from '../../public/svg/searchIcon.svg'
 
-import { Footer } from 'components/footer/Footer'
-import { Header } from 'components/header/Header'
-import { HeaderLink } from 'components/header/HeaderLink'
-import { Devtools } from 'components/devtools/Devtools'
+import { Footer } from '../footer/Footer'
+import { Header } from '../header/Header'
+import { HeaderLink } from '../header/HeaderLink'
+import { Devtools } from '../devtools/Devtools'
 
 interface AppLayoutProps {
   children: ReactNode

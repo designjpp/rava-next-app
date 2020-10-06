@@ -1,8 +1,8 @@
 //import Favicon from
-import Share from 'assets/images/share.png'
+import Share from '../public/images/share.png'
 
-const title = 'Create Ueno App'
-const description = 'The easiest and fastest way to create new projects.'
+const title = 'Rava Cycle'
+const description = 'Bikes, quadros e componentes para os praticantes do ciclismo (urbano, iniciante e intermediário). 🚴‍♀️ 🚴‍♂️'
 
 export const helmet = {
   title,
@@ -36,48 +36,48 @@ export const helmet = {
     {
       rel: 'icon',
       type: 'image/x-icon',
-      href: '../../public/favicon-32x32.png'
+      href: '/favicon-32x32.png'
     },
-    { rel: 'manifest', href: '../../public/manifest.webmanifest' },
+    { rel: 'manifest', href: '/manifest.webmanifest' },
     {
       rel: 'apple-touch-icon',
       sizes: '48x48',
-      href: '/icons/icon-48x48.png?v=d2239ad948a87b2bd9a035070f9139d0'
+      href: '../public/icons/icon-48x48.png?v=d2239ad948a87b2bd9a035070f9139d0'
     },
     {
       rel: 'apple-touch-icon',
       sizes: '72x72',
-      href: '/icons/icon-72x72.png?v=d2239ad948a87b2bd9a035070f9139d0'
+      href: '../public/icons/icon-72x72.png?v=d2239ad948a87b2bd9a035070f9139d0'
     },
     {
       rel: 'apple-touch-icon',
       sizes: '96x96',
-      href: '/icons/icon-96x96.png?v=d2239ad948a87b2bd9a035070f9139d0'
+      href: '../public/icons/icon-96x96.png?v=d2239ad948a87b2bd9a035070f9139d0'
     },
     {
       rel: 'apple-touch-icon',
       sizes: '144x144',
-      href: '/icons/icon-144x144.png?v=d2239ad948a87b2bd9a035070f9139d0'
+      href: '../public/icons/icon-144x144.png?v=d2239ad948a87b2bd9a035070f9139d0'
     },
     {
       rel: 'apple-touch-icon',
       sizes: '192x192',
-      href: '/icons/icon-192x192.png?v=d2239ad948a87b2bd9a035070f9139d0'
+      href: '../public/icons/icon-192x192.png?v=d2239ad948a87b2bd9a035070f9139d0'
     },
     {
       rel: 'apple-touch-icon',
       sizes: '256x256',
-      href: '/icons/icon-256x256.png?v=d2239ad948a87b2bd9a035070f9139d0'
+      href: '../public/icons/icon-256x256.png?v=d2239ad948a87b2bd9a035070f9139d0'
     },
     {
       rel: 'apple-touch-icon',
       sizes: '384x384',
-      href: '/icons/icon-384x384.png?v=d2239ad948a87b2bd9a035070f9139d0'
+      href: '../public/icons/icon-384x384.png?v=d2239ad948a87b2bd9a035070f9139d0'
     },
     {
       rel: 'apple-touch-icon',
       sizes: '512x512',
-      href: '/icons/icon-512x512.png?v=d2239ad948a87b2bd9a035070f9139d0'
+      href: '../public/icons/icon-512x512.png?v=d2239ad948a87b2bd9a035070f9139d0'
     }
   ]
 }
