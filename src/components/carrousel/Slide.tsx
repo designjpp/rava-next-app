@@ -13,7 +13,16 @@ interface SliderProps {
 
 export const Slider = ({ name, images, categories, id, slug }: SliderProps) => (
   <Slide>
-    <Link href="/produto/[slug]" as={`/produto/${slug}`}>
+    <Link
+      href={{
+        pathname: '/produto/[slug]',
+        query: {
+          id: id,
+          slug: slug
+        }
+      }}
+      as={`/produto/${slug}`}
+    >
       <a>
         <Img
           src={images[0].src.replace('scaled.jpg', '800x800.jpg')}
@@ -21,7 +30,16 @@ export const Slider = ({ name, images, categories, id, slug }: SliderProps) => (
         />
       </a>
     </Link>
-    <Link href="/produto/[slug]" as={`/produto/${slug}`}>
+    <Link
+      href={{
+        pathname: '/produto/[slug]',
+        query: {
+          id: id,
+          slug: slug
+        }
+      }}
+      as={`/produto/${slug}`}
+    >
       <a>
         <Title>{name}</Title>
       </a>
@@ -51,6 +69,11 @@ const Slide = styled.div`
   grid-template-rows: 1fr 1fr 0.15fr;
   gap: 20px 20px;
   overflow: hidden;
+
+  a {
+    text-decoration: none;
+    color: var(--secondary-400);
+  }
 `
 const Img = styled.img`
   grid-area: 1 / 1 / 2 / 2;

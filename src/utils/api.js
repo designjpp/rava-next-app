@@ -46,7 +46,13 @@ export async function getAllPostsForHome() {
 }
 
 export async function getAllProduct() {
-  const data = await fetchAPI('products?brand=1889&per_page=20')
+  const data = await fetchAPI('products?brand=1889&per_page=100')
+  //console.log(data)
   return data
 }
-// 8403
+
+export async function getProductId(slug) {
+  const data = await fetchAPI(`products?brand=1889&slug=${slug}`)
+  //console.log(`byslug ${data}`)
+  return data
+}
