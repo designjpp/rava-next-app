@@ -42,3 +42,12 @@ public/workbox-*.js
 
 # storybook
 storybook-static
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+yarn.lock
+npm.lock
+package-lock.json
