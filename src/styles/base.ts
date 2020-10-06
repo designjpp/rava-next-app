@@ -1,7 +1,6 @@
 import { createGlobalStyle, css } from 'styled-components'
 
 import { resetStyles } from './reset'
-import { responsiveFont } from './utils'
 import { variables } from './variables'
 
 // stylelint-disable selector-type-no-unknown
@@ -182,14 +181,14 @@ export const Styles = createGlobalStyle`
   }
 
   body {
-    ${responsiveFont()}
 
     position: relative;
 
     margin: 0;
 
     font-family: var(--font-base);
-    line-height: var(--line-height-solid);
+    font-size: var(--font-size-6)/var(--line-height-solid);;
+    font-weight: 400;
     /* iOS on orientation change */
     text-size-adjust: 100%;
 

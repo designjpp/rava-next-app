@@ -33,8 +33,12 @@ export const helmet = {
     { name: 'twitter:description', content: description }
   ],
   link: [
-    { rel: 'icon', type: 'image/x-icon', href: 'favicon-32x32.png' },
-    { rel: 'manifest', href: 'manifest.webmanifest' },
+    {
+      rel: 'icon',
+      type: 'image/x-icon',
+      href: '../../public/favicon-32x32.png'
+    },
+    { rel: 'manifest', href: '../../public/manifest.webmanifest' },
     {
       rel: 'apple-touch-icon',
       sizes: '48x48',

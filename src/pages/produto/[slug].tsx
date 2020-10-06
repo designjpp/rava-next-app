@@ -9,8 +9,8 @@ import { Intro } from 'components/intro/Intro'
 import { getAllProduct, getProductId } from 'utils/api'
 
 const Product = ({ product }) => {
-  const router = useRouter()
-  console.log(product)
+  //const router = useRouter()
+  //console.log(product)
   /*if (!router.isFallback) {
     return <ErrorPage statusCode={404} />
   }*/
@@ -61,6 +61,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const posts = await getAllProduct()
 
   const slugs = posts.map((post) => post.slug)
+
+  //console.log(slugs)
 
   const paths = slugs.map((slug) => ({
     params: { slug }

@@ -1,7 +1,6 @@
 import React, { ReactNode } from 'react'
 import styled from 'styled-components'
 
-import { responsiveFont } from '../../styles/utils'
 import { variables, breakpoints } from '../../styles/variables'
 import { Container } from '../container/Container'
 import { Column } from '../grid/Column'
@@ -22,8 +21,6 @@ const Wrapper = styled.div`
 `
 
 const Paragraph = styled.p`
-  ${responsiveFont(26, 32)};
-
   font-family: ${variables.font.familyHeading};
   font-weight: 300;
 `

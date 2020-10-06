@@ -1,7 +1,6 @@
 import React, { ReactNode } from 'react'
 import styled from 'styled-components'
 
-import { responsiveFont } from '../../styles/utils'
 import { breakpoints, variables } from '../../styles/variables'
 import { Container } from '../container/Container'
 import { Column } from '../grid/Column'
@@ -21,16 +20,12 @@ const Block = styled.div`
 `
 
 const Heading = styled.h3`
-  ${responsiveFont(16, 18)}
-
   margin-bottom: 10px;
 
   font-family: ${variables.font.familyHeading};
 `
 
 const Description = styled.p`
-  ${responsiveFont(16, 18)}
-
   font-weight: 300;
   line-height: ${26 / 16};
 
