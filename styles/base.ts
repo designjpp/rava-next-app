@@ -79,8 +79,8 @@ export const Styles = createGlobalStyle`
   --letter-spacing-2:.25em;
 
   --line-height-solid: 1.15;
-  --line-height-title: 1.29;
-  --line-height-copy: 1.6;
+  --line-height-title: 1.3;
+  --line-height-copy: 1.75;
 
   --spacing-extra-small: 0.25rem;
   --spacing-small: 0.5rem;

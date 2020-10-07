@@ -1,12 +1,11 @@
 import React from 'react'
 import Head from 'next/head'
 import ErrorPage from 'next/error'
-import { GetStaticProps, GetStaticPaths, GetServerSideProps } from 'next'
+import { GetServerSideProps } from 'next'
 import { useRouter } from 'next/router'
 import styled from 'styled-components'
 
-import { Intro } from '../../components/intro/Intro'
-import { getAllProduct, getProductId } from '../../utils/api'
+import { getProductId } from '../../utils/api'
 
 const Product = ({ product }) => {
   //const router = useRouter()
@@ -17,7 +16,7 @@ const Product = ({ product }) => {
   return (
     <>
       <Main>
-        {product.map(({ id, name, images, categories, attributes }) => {
+        {product.map(({ id, name, images, categories, attributes, description }) => {
           return (
             <React.Fragment key={id}>
               <Cover>
@@ -34,6 +33,9 @@ const Product = ({ product }) => {
                   </Categories>
                 </Details>
               </Cover>
+              <Description>
+                {description}
+              </Description>
               <Spec>
                 <SectionTitle>Especificações</SectionTitle>
                 <ProductOverviewEl>
@@ -56,50 +58,17 @@ const Product = ({ product }) => {
     </>
   )
 }
-export const getServerSideProps: GetServerSideProps = async ({ params: { slug } }) => {
+
+export const getServerSideProps: GetServerSideProps = async ({
+  params: { slug }
+}) => {
   const product = await getProductId(slug)
-  //console.log(`slug ${posts}`)
-  //const product = posts.find((x) => x.lug === slug)
   return {
     props: {
       product
     }
   }
 }
-/*
-export const getStaticProps: GetStaticProps = async ({ params: { slug } }) => {
-  const product = await getProductId(slug)
-  //console.log(`slug ${posts}`)
-  //const product = posts.find((x) => x.lug === slug)
-  return {
-    props: {
-      product
-    }
-  }
-}
-
-
-export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = await getAllProduct()
-
-  //const slugs = posts.map((post) => post.slug)
-
-  //console.log(slugs)
-
-  //const paths = slugs.map((slug) => ({
-  //  params: { slug }
-  //}))
-
-  return {
-    paths: posts.map((post) => ({
-      params: {
-        slug: post.slug,
-      },
-    })) || [],
-    fallback: true
-  }
-}*/
-
 
 export default Product
 
@@ -139,22 +108,24 @@ const Name = styled.h1`
   font-size: 2rem;
 `
 const Categories = styled.div``
+
+const Description = styled(Cover)`
+height: auto;
+`
 const Spec = styled(Cover)`
   height: auto;
 `
 const SectionTitle = styled.h3`
   line-height: 1.3em;
-  font-weight: 700;
+  font-weight: 300;
   letter-spacing: 0.01em;
   margin: 0;
   padding: 20px 0;
   width: 100%;
-  font-size: 3.5em;
-  color: rgba(25, 27, 24, 0.8);
+  font-size: var(--font-size-3);
+  color: var(--secondary-300);
   grid-area: 1 / 3 / 1 / 30;
-  @media (max-width: 320px) {
-    font-size: 2.5em;
-  }
+  font-family: var(--font-title);
 `
 
 const ProductOverviewEl = styled.div`
@@ -168,43 +139,42 @@ const ProductOverviewEl = styled.div`
   grid-area: 2 / 3 / 2 / 30;
   align-items: stretch;
   display: grid;
-  grid-auto-columns: 1fr;
-  grid-column-gap: 20px;
-  grid-row-gap: 20px;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-auto-columns: auto;
+  gap: 50px;
+  grid-template-columns: repeat(2, 1fr);
   grid-template-rows: auto;
 `
 
-const SpecItem = styled.div`
-  background: #fbfafc;
-  padding: 20px;
-`
+const SpecItem = styled.div``
+
 const SpecTitle = styled.h3`
-  font-weight: bold;
-  font-size: 15px;
-  margin: 15px 0;
+  font-weight: 700;
+  font-size: var(--font-size-7);
+  font-family: var(--font-title);
+  letter-spacing: var(--letter-spacing-1);
+  margin: 25px 0;
   position: relative;
-  line-height: 18px;
   color: #222;
+  text-transform: uppercase;
+
   &:before {
     display: block;
     content: '';
-    width: 26px;
-    height: 1px;
-    margin: 0 0 8px;
-    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 2.5px;
+    margin: 0 0 18px;
+    background-color: rgba(0, 0, 0, 0.15);
   }
 `
 const OptionsList = styled.ul`
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  font-weight: normal;
-  font-size: 13px;
-  color: #333;
+  font-size: var(--font-size-6);
+  line-height:var(--line-height-copy);
 `
 const OptionsListItem = styled.li`
-  margin: 0 0 18px;
+  margin: 0;
   padding: 0;
   width: 100%;
 `

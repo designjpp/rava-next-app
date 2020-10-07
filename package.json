@@ -26,7 +26,8 @@
     "building": "next build src && tsc --project src/tsconfig.json",
     "develop": "ts-node-dev --transpileOnly --project src/tsconfig.json --compiler-options '{\"module\":\"commonjs\"}' --no-notify --ignore-watch",
     "starting": "cross-env NODE_ENV=production next start build",
-    "export": "next export -o ./dist src"
+    "export": "next export -o ./dist src",
+    "format": "prettier --ignore-path .gitignore --write \"**/*.+(js|json)\""
   },
   "dependencies": {
     "@woocommerce/woocommerce-rest-api": "^1.0.1",

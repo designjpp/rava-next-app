@@ -13,7 +13,7 @@ module.exports = withPlugins([
         dest: 'public',
         disable: !isProd
       }
-    },
+    }
   ],
   optimizedImages
 ])
