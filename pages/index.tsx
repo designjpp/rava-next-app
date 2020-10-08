@@ -1,9 +1,9 @@
 import React from 'react'
 import Head from 'next/head'
 import { GetServerSideProps } from 'next'
-import dynamic from 'next/dynamic'
 
-import { LazyLoadComponent } from 'react-lazy-load-image-component'
+import instagrammer from "instagrammer"
+import { LazyLoadComponent, trackWindowScroll } from 'react-lazy-load-image-component'
 
 import { LandingPageProps } from '../types/api'
 import { getAllPostsForHome } from '../utils/api'
@@ -13,7 +13,7 @@ import { Hero } from '../components/Hero/Hero'
 import { ProductSlider } from '../components/carrousel/Slider'
 
 import { InstagramFeed } from '../components/instagramfeed/Feed'
-import instagrammer from "instagrammer"
+
 
 const Index = ({ allPosts, instaFeed }: LandingPageProps) => (
   <>
@@ -29,14 +29,13 @@ const Index = ({ allPosts, instaFeed }: LandingPageProps) => (
     </LazyLoadComponent>
   </>
 )
-//export async function getStaticProps() {}
+//export async function GetServerSideProps() {}
 export const getServerSideProps: GetServerSideProps = async () => {
   const allPosts = await getAllPostsForHome()
 
   //const instagrammer = dynamic(() => import('instagrammer'))
 
-  const instaFeed = await instagrammer
-    .profile(`${process.env.INSTAGRAM_USERNAME}`)
+  const instaFeed = await instagrammer.profile(`${process.env.INSTAGRAM_USERNAME}`)
     .then((response) => {
       //console.log(response);
       return response
@@ -51,4 +50,5 @@ export const getServerSideProps: GetServerSideProps = async () => {
   }
 }
 
-export default Index
+//export default Index
+export default trackWindowScroll(Index);
