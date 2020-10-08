@@ -1,3 +1,5 @@
+const fetch = require('node-fetch')
+
 class Instagram {
   static getFeed() {
     const mapMedia = (json) => {
