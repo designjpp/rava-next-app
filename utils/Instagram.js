@@ -1,78 +1,21 @@
-const fetch = require('node-fetch')
+const XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest
+import Nanogram from 'nanogram.js';
 
-class Instagram {
-  static getFeed() {
-    const mapMedia = (json) => {
-      const thumbnailIndex = (node) => {
-        node.thumbnail_resources.forEach((item, index) => {
-          if (item.config_width === 640) {
-            return index
-          }
-        })
+// For versions of node earlier than 12.x, use this globalThis polyfill:
+(function() {
+  if (typeof globalThis === 'object') return;
+  Object.defineProperty(Object.prototype, '__magic__', {
+    get: function() {
+      return this;
+    },
+    configurable: true
+  });
+  __magic__.globalThis = __magic__;
+  delete Object.prototype.__magic__;
+}());
 
-        return 4 // MAGIC
-      }
-
-      const url = (node) => {
-        return 'https://www.instagram.com/p/' + node.shortcode
-      }
-
-      const src = (node) => {
-        switch (node.__typename) {
-          case 'GraphSidecar':
-            return node.thumbnail_resources[thumbnailIndex(node)].src
-          case 'GraphVideo':
-            return node.thumbnail_src
-          default:
-            return node.thumbnail_resources[thumbnailIndex(node)].src
-        }
-      }
-
-      const alt = (node) => {
-        if (
-          node.edge_media_to_caption.edges[0] &&
-          node.edge_media_to_caption.edges[0].node
-        ) {
-          return node.edge_media_to_caption.edges[0].node.text
-        } else if (node.accessibility_caption) {
-          return node.accessibility_caption
-        } else {
-          return ''
-        }
-      }
-
-      const edges =
-        json.entry_data.ProfilePage[0].graphql.user.edge_owner_to_timeline_media
-          .edges
-
-      return edges.map((edge) => {
-        return {
-          alt: alt(edge.node),
-          url: url(edge.node),
-          src: src(edge.node)
-        }
-      })
-    }
-
-    const getJSON = (body) => {
-      try {
-        const data = body
-          .split('window._sharedData = ')[1]
-          .split('</script>')[0]
-        return JSON.parse(data.substr(0, data.length - 1))
-      } catch (err) {
-        throw Error('Cannot parse response body')
-      }
-    }
-
-    const url =
-      'https://www.instagram.com/' + `${process.env.INSTAGRAM_PROFILE}` + '/'
-
-    return fetch(url)
-      .then((resp) => resp.text())
-      .then((body) => getJSON(body))
-      .then((json) => mapMedia(json))
-  }
+if (!globalThis.XMLHttpRequest) {
+  globalThis.XMLHttpRequest = XMLHttpRequest;
 }
 
-export default Instagram
+export const instagramParser = new Nanogram()

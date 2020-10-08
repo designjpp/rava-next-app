@@ -13,7 +13,7 @@ import { Hero } from '../components/Hero/Hero'
 
 import { ProductSlider } from '../components/carrousel/Slider'
 
-import Instagram from '../utils/Instagram'
+import {instagramParser} from '../utils/Instagram'
 import { InstagramFeed } from '../components/instagramfeed/Feed'
 
 const Index = ({ allPosts, instaFeed }: LandingPageProps) => (
@@ -33,8 +33,13 @@ const Index = ({ allPosts, instaFeed }: LandingPageProps) => (
 export const getServerSideProps: GetServerSideProps = async () => {
   const allPosts = await getAllPostsForHome()
 
-  const instaFeed = await Instagram.getFeed()
-  //console.log(instaFeed)
+  //const instaFeed = await Instagram.getFeed()
+  //console.log(instaFeed) `${process.env.INSTAGRAM_PROFILE}`
+  const instaFeed = await instagramParser.getMediaByUsername(`${process.env.INSTAGRAM_PROFILE}`)
+  .then((response) => {
+    //console.log(response);
+    return response.profile.edge_owner_to_timeline_media.edges
+  })
   
   return { props: { 
     allPosts,
