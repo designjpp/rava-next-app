@@ -13,7 +13,8 @@ import { Hero } from '../components/Hero/Hero'
 
 import { ProductSlider } from '../components/carrousel/Slider'
 
-import { instagramParser } from '../utils/Instagram'
+import userInstagram from "user-instagram"
+//import { instagramParser } from '../utils/Instagram'
 import { InstagramFeed } from '../components/instagramfeed/Feed'
 
 const Index = ({ allPosts, instaFeed }: LandingPageProps) => (
@@ -30,39 +31,18 @@ const Index = ({ allPosts, instaFeed }: LandingPageProps) => (
   </>
 )
 //export async function getStaticProps() {}
-/*export const getServerSideProps: GetServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
+  
   const allPosts = await getAllPostsForHome()
 
-  //const instaFeed = await Instagram.getFeed()
-  //console.log(instaFeed) `${process.env.INSTAGRAM_PROFILE}`
-  *const instaFeed = await instagramParser.getMediaByUsername(`${process.env.INSTAGRAM_PROFILE}`)
+  const instaFeed = await userInstagram(`${process.env.INSTAGRAM_USERNAME}`) // Same as getUserData()
   .then((response) => {
     //console.log(response);
-    return response.profile.edge_owner_to_timeline_media.edges
-  })*
+     return response.posts
+  }).catch(console.error);
 
   return {
     props: {
-      allPosts
-    }
-  }
-}*/
-
-//export async function getStaticProps() {}
-export const getStaticProps: GetStaticProps = async () => {
-  const allPosts = await getAllPostsForHome()
-  //const instaFeed = await Instagram.getFeed()
-  //console.log(instaFeed) `${process.env.INSTAGRAM_PROFILE}`
-  const instaFeed = await instagramParser
-    .getMediaByUsername(`${process.env.INSTAGRAM_PROFILE}`)
-    .then((response) => {
-      //console.log(response);
-      return response.profile.edge_owner_to_timeline_media.edges
-    })
-
-  return {
-    props: {
-
       allPosts,
       instaFeed
     }

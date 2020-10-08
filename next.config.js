@@ -4,7 +4,9 @@ const withPWA = require('next-pwa')
 const optimizedImages = require('next-optimized-images')
 
 const isProd = process.env.NODE_ENV === 'production'
-
+const nextConfig = {
+  target: 'serverless'
+}
 module.exports = withPlugins([
   [
     withPWA,
@@ -15,5 +17,6 @@ module.exports = withPlugins([
       }
     }
   ],
-  optimizedImages
+  optimizedImages,
+  nextConfig
 ])

@@ -17,13 +17,13 @@ export const InstagramFeed = ({ feed }) => (
         navigation
         scrollbar={{ hide: false }}
       >
-        {feed.map(({ node }, index) => (
+        {feed.map(({ imageUrl, caption, url }, index) => (
           <SwiperSlide key={index}>
-            <Link to={`https://www.instagram.com/p/${node.shortcode}`} rel="noopener" target="_blank">
+            <LinkA to={url} rel="noopener" target="_blank">
               <BoxLink>
-                <Img src={node.thumbnail_src} alt={node.accessibility_caption} />
+                <Img src={imageUrl} alt={caption} />
               </BoxLink>
-            </Link>
+            </LinkA>
           </SwiperSlide>
         ))}
       </Swiper>
@@ -64,10 +64,22 @@ const CarouselTitleWrap = styled.div`
   z-index: 1;
   pointer-events: none;
 `
+const LinkA = styled(Link)`
+  width: 100%;
+  height: 300px;
+  display: block;
+`
+
 const BoxLink = styled.div`
   position: relative;
   overflow: hidden;
   z-index: 1;
+  
+  width: 100%;
+  padding-bottom: 100%;
+  background: var(--primary-300);
+  z-index: 1;
+
   :hover img {
     opacity: 0.5;
     transform: scale(1.05);
@@ -75,13 +87,24 @@ const BoxLink = styled.div`
 `
 
 const Img = styled.img`
-  position: relative;
+  /*position: absolute;
   display: block;
-  width: 100%;
-  height: auto;
   z-index: 1;
   transition: all 0.3s ease-in-out;
   transform: translateZ(0);
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;*/
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  transition: all 0.3s ease-in-out;
 `
 
 const Player = styled.div`
