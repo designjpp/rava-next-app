@@ -14,7 +14,7 @@ import { Hero } from '../components/Hero/Hero'
 import { ProductSlider } from '../components/carrousel/Slider'
 
 //import userInstagram from "user-instagram"
-import instagrammer from "instagrammer"
+//import instagrammer from 'instagrammer'
 
 //import { instagramParser } from '../utils/Instagram'
 import { InstagramFeed } from '../components/instagramfeed/Feed'
@@ -24,17 +24,13 @@ const Index = ({ allPosts, instaFeed }: LandingPageProps) => (
     <Head>
       <title>Rava Cycle - Página Inicial</title>
     </Head>
-
     <Hero />
-
     <ProductSlider products={allPosts} />
-
-  <InstagramFeed feed={instaFeed} />*
+    <InstagramFeed feed={instaFeed} />*
   </>
 )
 //export async function getStaticProps() {}
 export const getServerSideProps: GetServerSideProps = async () => {
-  
   const allPosts = await getAllPostsForHome()
 
   /*const instaFeed = await userInstagram(`${process.env.INSTAGRAM_USERNAME}`) // Same as getUserData()
@@ -42,11 +38,16 @@ export const getServerSideProps: GetServerSideProps = async () => {
     //console.log(response);
      return response.posts
   }).catch(console.error);*/
-  const instaFeed = await instagrammer.profile(`${process.env.INSTAGRAM_USERNAME}`)
-  .then((response) => {
-    //console.log(response);
-     return response
-  }).catch(console.error)
+  const instagrammer = await import('instagrammer')
+  
+  const instaFeed = await instagrammer
+    .profile(`${process.env.INSTAGRAM_USERNAME}`)
+    .then((response) => {
+      //console.log(response);
+      return response
+    })
+    .catch(console.error)
+
   return {
     props: {
       allPosts,
