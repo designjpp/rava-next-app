@@ -1,9 +1,10 @@
 import React from 'react'
 import Head from 'next/head'
 import { GetServerSideProps } from 'next'
+import dynamic from 'next/dynamic'
 
-import instagrammer from "instagrammer"
-import { LazyLoadComponent, trackWindowScroll } from 'react-lazy-load-image-component'
+//import instagrammer from "instagrammer"
+const {instagrammer} = dynamic(() => import('instagrammer'))
 
 import { LandingPageProps } from '../types/api'
 import { getAllPostsForHome } from '../utils/api'
@@ -21,19 +22,17 @@ const Index = ({ allPosts, instaFeed }: LandingPageProps) => (
       <title>Rava Cycle - Página Inicial</title>
     </Head>
     <Hero />
-    <LazyLoadComponent>
+    <>
       <ProductSlider products={allPosts} />
-    </LazyLoadComponent>
-    <LazyLoadComponent>
+    </>
+    <>
       <InstagramFeed feed={instaFeed} />
-    </LazyLoadComponent>
+    </>
   </>
 )
 //export async function GetServerSideProps() {}
 export const getServerSideProps: GetServerSideProps = async () => {
   const allPosts = await getAllPostsForHome()
-
-  //const instagrammer = dynamic(() => import('instagrammer'))
 
   const instaFeed = await instagrammer.profile(`${process.env.INSTAGRAM_USERNAME}`)
     .then((response) => {
@@ -50,5 +49,5 @@ export const getServerSideProps: GetServerSideProps = async () => {
   }
 }
 
-//export default Index
-export default trackWindowScroll(Index);
+export default Index
+
