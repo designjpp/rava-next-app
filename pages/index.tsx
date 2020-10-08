@@ -1,23 +1,19 @@
 import React from 'react'
 import Head from 'next/head'
-import { GetServerSideProps, GetStaticProps } from 'next'
+import { GetServerSideProps } from 'next'
+import dynamic from 'next/dynamic'
+
+import { LazyLoadComponent } from 'react-lazy-load-image-component'
 
 import { LandingPageProps } from '../types/api'
 import { getAllPostsForHome } from '../utils/api'
-
-//import { BlockText } from '../components/block-text/BlockText'
-//import { Highlight } from '../components/intro/Highlight'
-//import { Intro } from '../components/intro/Intro'
 
 import { Hero } from '../components/Hero/Hero'
 
 import { ProductSlider } from '../components/carrousel/Slider'
 
-//import userInstagram from "user-instagram"
-//import instagrammer from 'instagrammer'
-
-//import { instagramParser } from '../utils/Instagram'
 import { InstagramFeed } from '../components/instagramfeed/Feed'
+import instagrammer from "instagrammer"
 
 const Index = ({ allPosts, instaFeed }: LandingPageProps) => (
   <>
@@ -25,21 +21,20 @@ const Index = ({ allPosts, instaFeed }: LandingPageProps) => (
       <title>Rava Cycle - Página Inicial</title>
     </Head>
     <Hero />
-    <ProductSlider products={allPosts} />
-    <InstagramFeed feed={instaFeed} />*
+    <LazyLoadComponent>
+      <ProductSlider products={allPosts} />
+    </LazyLoadComponent>
+    <LazyLoadComponent>
+      <InstagramFeed feed={instaFeed} />
+    </LazyLoadComponent>
   </>
 )
 //export async function getStaticProps() {}
 export const getServerSideProps: GetServerSideProps = async () => {
   const allPosts = await getAllPostsForHome()
 
-  /*const instaFeed = await userInstagram(`${process.env.INSTAGRAM_USERNAME}`) // Same as getUserData()
-  .then((response) => {
-    //console.log(response);
-     return response.posts
-  }).catch(console.error);*/
-  const instagrammer = await import('instagrammer')
-  
+  //const instagrammer = dynamic(() => import('instagrammer'))
+
   const instaFeed = await instagrammer
     .profile(`${process.env.INSTAGRAM_USERNAME}`)
     .then((response) => {
