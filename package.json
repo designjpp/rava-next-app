@@ -34,6 +34,7 @@
     "algoliasearch": "^4.5.1",
     "imagemin-mozjpeg": "^9.0.0",
     "imagemin-optipng": "^8.0.0",
+    "instagram-web-api": "^2.2.2",
     "lodash": "4.17.20",
     "nanogram.js": "^2.0.0",
     "next": "^9.5.3",
