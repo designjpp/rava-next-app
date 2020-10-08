@@ -17,11 +17,11 @@ export const InstagramFeed = ({ feed }) => (
         navigation
         scrollbar={{ hide: false }}
       >
-        {feed.map(({ imageUrl, caption, url }, index) => (
+        {feed.map(({ node }, index) => (
           <SwiperSlide key={index}>
-            <LinkA to={url} rel="noopener" target="_blank">
+            <LinkA to={`https://www.instagram.com/p/${node.shortcode}`} rel="noopener" target="_blank">
               <BoxLink>
-                <Img src={imageUrl} alt={caption} />
+                <Img src={node.thumbnail_src} alt={node.accessibility_caption} />
               </BoxLink>
             </LinkA>
           </SwiperSlide>
