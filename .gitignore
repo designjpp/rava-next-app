@@ -52,3 +52,6 @@ yarn.lock
 npm.lock
 package-lock.json
 .vercel
+
+**/public/workbox-*.js
+**/public/sw.js
