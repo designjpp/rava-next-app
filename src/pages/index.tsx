@@ -30,14 +30,8 @@ const Index: NextPage<LandingPageProps> = () => {
     dispatch(fetchInstagram())
   }, [])
   return (
-    <Layout
-      title="Rava Cycle"
-      description="Bikes, quadros e componentes para os praticantes do ciclismo (urbano, iniciante e intermediário). 🚴‍♀️ 🚴‍♂️"
-      url={'/'}
-      ogImage={''}
-    >
+    <Layout>
       <Hero />
-      
       <Carousel products={saleProducts} />
     
       <InstagramFeed feed={feed} />
