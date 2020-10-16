@@ -122,7 +122,7 @@ const GlobalStyles = createGlobalStyle`
   --primary-100: #591017;
   --primary-200: #7e1721;
   --primary-300: #a61f2b;
-  --primary-400: #bd3f4b;
+  --primary-400: #af231c;
   --primary-500: #ca636d;
   --primary-600: #d5848b;
   --primary-700: #dfa3a9;

@@ -5,7 +5,7 @@ const defaultTitle = 'Rava Cycle'
 const defaultDescription =
   'Bikes, quadros e componentes para os praticantes do ciclismo (urbano, iniciante e intermediário). 🚴‍♀️ 🚴‍♂️'
 const defaultOGURL = 'https://ravacycle.com'
-const defaultOGImage = '../public/images/share.png'
+const defaultOGImage = '/images/share.png'
 
 const SITE_URL =
   process.env.NODE_ENV === 'development'
@@ -23,15 +23,15 @@ const Helmet = ({
   title = defaultTitle,
   description = 'Bikes, quadros e componentes para os praticantes do ciclismo (urbano, iniciante e intermediário). 🚴‍♀️ 🚴‍♂️' || defaultDescription,
   url = 'https://ravacycle.com' || defaultOGURL,
-  ogImage = '../public/images/share.png' || defaultOGImage
+  ogImage = '/images/share.png' || defaultOGImage
 }: Head) => (
   <NextHead>
     <meta charSet="UTF-8" />
     <title>{title || ''}</title>
     <meta name="description" content={description || defaultDescription} />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="msapplication-TileColor" content="#ffffff" />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="msapplication-TileColor" content="#af231c" />
+    <meta name="theme-color" content="#af231c" />
 
     <meta property="og:url" content={url || SITE_URL} />
     <meta property="og:title" content={title || ''} />
@@ -46,10 +46,10 @@ const Helmet = ({
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
 
-    <meta name="apple-mobile-web-app-status-bar-style" content="B3212F" />
-    <meta name="msapplication-navbutton-color" content="#B3212F" />
-    <meta name="msapplication-TileColor" content="#B3212F" />
-    <meta name="theme-color" content="#B3212F" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="af231c" />
+    <meta name="msapplication-navbutton-color" content="#af231c" />
+    <meta name="msapplication-TileColor" content="#af231c" />
+    <meta name="theme-color" content="#af231c" />
 
     <meta property="og:title" content={title} />
     <meta property="og:image" content={ogImage} />
@@ -70,45 +70,45 @@ const Helmet = ({
     <link
       rel="apple-touch-icon"
       sizes="48x48"
-      href="../public/icons/icon-48x48.png?v=d2239ad948a87b2bd9a035070f9139d0"
+      href="/icons/icon-48x48.png"
     />
     <link
       rel="apple-touch-icon"
       sizes="72x72"
-      href="../public/icons/icon-72x72.png?v=d2239ad948a87b2bd9a035070f9139d0"
+      href="/icons/icon-72x72.png"
     />
     <link
       rel="apple-touch-icon"
       sizes="96x96"
-      href="../public/icons/icon-96x96.png?v=d2239ad948a87b2bd9a035070f9139d0"
+      href="/icons/icon-96x96.png"
     />
     <link
       rel="apple-touch-icon"
       sizes="144x144"
-      href="../public/icons/icon-144x144.png?v=d2239ad948a87b2bd9a035070f9139d0"
+      href="/icons/icon-144x144.png"
     />
     <link
       rel="apple-touch-icon"
       sizes="192x192"
-      href="../public/icons/icon-192x192.png?v=d2239ad948a87b2bd9a035070f9139d0"
+      href="/icons/icon-192x192.png"
     />
     <link
       rel="apple-touch-icon"
       sizes="256x256"
-      href="../public/icons/icon-256x256.png?v=d2239ad948a87b2bd9a035070f9139d0"
+      href="/icons/icon-256x256.png"
     />
     <link
       rel="apple-touch-icon"
       sizes="384x384"
-      href="../public/icons/icon-384x384.png?v=d2239ad948a87b2bd9a035070f9139d0"
+      href="/icons/icon-384x384.png"
     />
     <link
       rel="apple-touch-icon"
       sizes="512x512"
-      href="../public/icons/icon-512x512.png?v=d2239ad948a87b2bd9a035070f9139d0"
+      href="/icons/icon-512x512.png"
     />
 
-    <link rel="manifest" href="/manifest.json" />
+    <link rel="manifest" href="/manifest.webmanifest" />
 
     <script
       type="application/ld+json"
@@ -116,10 +116,10 @@ const Helmet = ({
         __html: `{
           "@context": "https://schema.org",
           "@type": "LocalBusiness",
-          "name": "Grupo JPP - Importação e Exportação",
-          "image": "https://grupojpp.com.br/logo.jpg",
-          "@id": "https://grupojpp.com.br/#logo",
-          "url": "https://grupojpp.com.br",
+          "name": "Rava Cycle",
+          "image": "https://ravacycle.com/public/logo.jpg",
+          "@id": "https://ravacycle.com/#logo",
+          "url": "https://ravacycle.com",
           "telephone": "+55333277-3030",
           "address": {
             "@type": "PostalAddress",

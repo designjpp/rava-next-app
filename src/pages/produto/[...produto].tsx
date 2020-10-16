@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
+import { NextSeo } from 'next-seo';
 
 import MainLayout from 'components/Layout'
 //import SingleProductRenderer from '../../components/SingleProduct/SingleProductRenderer';
@@ -33,12 +34,11 @@ const Product = () => {
   }, [productId])
 
   return (
-    <MainLayout
+    <MainLayout>
+      <NextSeo
       title={`${currentProductName} - Rava Cycle`}
-      description=""
-      url={'/'}
-      ogImage={''}
-    >
+      description="A short description goes here."
+    />
       <Main>
         <Cover>
           <Feature>

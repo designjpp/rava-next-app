@@ -1,12 +1,30 @@
-//var axios = require('axios')
+import axios from 'axios';
+
+const config = {
+  method: 'get',
+  baseURL: `${process.env.WORDPRESS_API_URL}/wp-json/wc/v3/`,
+  auth: {
+    username: `${process.env.CONSUMER_KEY}`,
+    password: `${process.env.CONSUMER_SECRET}`
+  },
+};
+
+export async function wooApi(fetch) {
+  const data = await axios(fetch, config)
+  //console.log(`byslug ${data}`)
+  return data
+}
+/*
 import WooCommerceRestApi from '@woocommerce/woocommerce-rest-api'
 
 export const wooApi = new WooCommerceRestApi({
   url: `${process.env.WORDPRESS_API_URL}`,
   consumerKey: `${process.env.CONSUMER_KEY}`,
-  consumerSecret: `${process.env.CONSUMER_SECRET}`
+  consumerSecret: `${process.env.CONSUMER_SECRET}`,
+  version: 'wc/v3',
+  queryStringAuth: true
 })
-/*
+
 async function fetchAPI(fetch) {
   const res = wooApi
     .get(fetch)

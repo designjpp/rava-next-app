@@ -27,7 +27,7 @@ export const SwiperStyle = styled.div`
     position: relative;
 
     display: block;
-    overflow: hidden;
+    /*overflow: hidden;*/
 
     margin: 0;
     padding: 0;

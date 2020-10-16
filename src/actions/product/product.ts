@@ -12,9 +12,7 @@ import {
 export const fetchSaleProducts = (itemCount = 8) => {
   return async (dispatch: Dispatch) => {
     try {
-      const response = await wooApi.get(
-        `products?brand=1889&per_page=${itemCount}`
-      )
+      const response = await wooApi(`products?brand=1889&per_page=${itemCount}`)
 
       dispatch<FetchSaleProducts>({
         type: ProductTypes.fetchSaleProduts,
@@ -32,7 +30,7 @@ export const fetchCategoryProducts = (
 ) => {
   return async (dispatch: Dispatch) => {
     try {
-      const response = await wooApi.get(`products?category=${categoryId}`)
+      const response = await wooApi(`products?category=${categoryId}`)
 
       dispatch<FetchCategoryProducts>({
         type: ProductTypes.fetchCategoryProducts,
@@ -48,7 +46,7 @@ export const fetchCategoryProducts = (
 export const fetchProductById = (id: string, callback?: () => void) => {
   return async (dispatch: Dispatch) => {
     try {
-      const response = await wooApi.get(`products/${id}`)
+      const response = await wooApi(`products/${id}`)
 
       dispatch<FetchProductById>({
         type: ProductTypes.fetchProductById,
@@ -64,7 +62,7 @@ export const fetchProductById = (id: string, callback?: () => void) => {
 export const fetchProductsByIds = (ids: string) => {
   return async (dispatch: Dispatch) => {
     try {
-      const response = await wooApi.get(`products?include=${ids}`)
+      const response = await wooApi(`products?include=${ids}`)
 
       dispatch<FetchProductsByIds>({
         type: ProductTypes.fetchProductsByIds,

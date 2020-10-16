@@ -5,7 +5,7 @@ import dynamic from 'next/dynamic'
 
 //const Footer = dynamic(import('components/Footer'))
 
-import Helmet from 'utils/helmet'
+//import Helmet from 'utils/helmet'
 import Header from 'components/Header'
 import { HeaderLink } from 'components/Header/HeaderLink'
 import Footer from 'components/Footer'
@@ -16,21 +16,15 @@ import SearchIcon from '../../assets/svg/searchIcon.svg'
 
 type AppLayoutProps = {
   children?: ReactNode
-  title: string
-  description: string
-  url: string
-  ogImage: string
 }
 const SocialArray = [
   { icon: <Instagram />, to: 'https://instagram.com/ravacycle' },
   { icon: <Facebook />, to: 'https://facebook.com/ravacycle' }
 ]
 
-const Layout = ({ children, title, description, url, ogImage }: AppLayoutProps) => {
+const Layout = ({ children }: AppLayoutProps) => {
   return (
     <>
-      <Helmet title={title} description={description} url={url} ogImage={ogImage} />
-
       <Header>
         <HeaderLink name="Produtos" href="/produtos" />
         <HeaderLink name="Sobre" href="/sobre" />
