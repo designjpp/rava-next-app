@@ -2,7 +2,6 @@
 const path = require('path')
 const withPWA = require('next-pwa')
 const withOptimizedImages = require('next-optimized-images')
-const WebpackPwaManifest = require('webpack-pwa-manifest')
 //const { resolve } = require('path')
 
 const isProd = process.env.NODE_ENV === 'production'
@@ -26,48 +25,6 @@ let config = {
   }
 }
 
-const manifestConfig = {
-  filename: 'public/manifest.webmanifest',
-  name: 'Rava Cycle',
-  short_name: 'ravacycle',
-  description:
-    'Bikes, quadros e componentes para os praticantes do ciclismo (urbano, iniciante e intermediário). 🚴‍♀️ 🚴‍♂️',
-  background_color: '#af231c',
-  theme_color: '#af231c',
-  display: 'standalone',
-  orientation: 'any',
-  //inject: false,
-  //start_url: '/',
-  //lang: 'pt-Br',
-  //dir: 'ltr',
-  //includeDirectory: true,
-  //publicPath: '/public',
-  //ios: {
-  //  'apple-mobile-web-app-title': 'Rava Cycle',
-  //  'apple-mobile-web-app-status-bar-style': '#af231c'
-  //},
-  icons: [
-    {
-      src: path.resolve('public/icons/icon.png'),
-      sizes: [32,48, 72, 96, 128, 144, 152, 192, 256, 384, 512],
-      destination: path.join('icons'),
-      //ios: true
-    },
-    {
-      src: path.resolve('public/icons/icon.png'),
-      sizes: [57, 60, 72, 76, 120, 144, 152, 180],
-      destination: path.join('icons'),
-    //  ios: true
-    },
-    {
-      src: path.resolve('public/icons/icon.png'),
-      destination: path.join('icons'),
-      size: '1024x1024',
-      purpose: 'maskable'
-    }
-  ]
-}
-
 const optimizedImages = {
   optimizeImagesInDev: true
 }
@@ -83,25 +40,5 @@ module.exports = withPWA(
     ...config,
     ...optimizedImages,
     ...granularChunks,
-    webpack: (config, { isServer }) => {
-      config.module.rules.push({
-        test: /\.(mov|mp4)$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              name: '[name].[ext]'
-            }
-          }
-        ]
-      })
-
-      if (!isProd && !isServer) {
-        config.plugins.push(new WebpackPwaManifest(manifestConfig))
-      }
-      config.resolve.alias['@svg'] = path.join(__dirname, 'public/svg')
-      config.resolve.alias['@images'] = path.join(__dirname, 'public/images')
-      return config
-    }
   })
 )

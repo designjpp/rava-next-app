@@ -25,7 +25,6 @@
     "export": "next export"
   },
   "dependencies": {
-    "@woocommerce/woocommerce-rest-api": "^1.0.1",
     "axios": "^0.20.0",
     "imagemin-mozjpeg": "^9.0.0",
     "imagemin-optipng": "^8.0.0",

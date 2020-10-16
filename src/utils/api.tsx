@@ -1,16 +1,13 @@
 import axios from 'axios';
 
-const config = {
-  method: 'get',
-  baseURL: `${process.env.WORDPRESS_API_URL}/wp-json/wc/v3/`,
-  auth: {
-    username: `${process.env.CONSUMER_KEY}`,
-    password: `${process.env.CONSUMER_SECRET}`
-  },
-};
-
 export async function wooApi(fetch) {
-  const data = await axios(fetch, config)
+  const data = await axios(fetch, {
+    method: 'get',
+    baseURL: `${process.env.WORDPRESS_API_URL}/wp-json/wc/v3/`,
+    auth: {
+      username: `${process.env.CONSUMER_KEY}`,
+      password: `${process.env.CONSUMER_SECRET}`
+    }})
   //console.log(`byslug ${data}`)
   return data
 }
