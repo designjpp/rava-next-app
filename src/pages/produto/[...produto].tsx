@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
-import { NextSeo } from 'next-seo';
+import { NextSeo } from 'next-seo'
 
 import MainLayout from 'components/Layout'
 //import SingleProductRenderer from '../../components/SingleProduct/SingleProductRenderer';
@@ -36,25 +36,27 @@ const Product = () => {
   return (
     <MainLayout>
       <NextSeo
-      title={`${currentProductName} - Rava Cycle`}
-      description="A short description goes here."
-    />
+        title={`${currentProductName} - Rava Cycle`}
+        description="A short description goes here."
+      />
       <Main>
         <Cover>
           <Feature>
             <img
-              src={currentProduct?.images[0].src.replace(
-                'scaled.jpg',
-                '800x800.jpg'
-              ) ?? '...' }
+              src={
+                currentProduct?.images[0].src.replace(
+                  'scaled.jpg',
+                  '800x800.jpg'
+                ) ?? '...'
+              }
               alt={currentProduct?.images[0].alt ?? '...'}
-              />
+            />
           </Feature>
           <Details>
             <Name>{currentProduct?.name ?? '...'}</Name>
             <Categories>
-              {currentProduct?.categories[0].name ?? '...'} / {currentProduct?.categories[1].name ?? '...'}
-            
+              {currentProduct?.categories[0].name ?? '...'} /{' '}
+              {currentProduct?.categories[1].name ?? '...'}
             </Categories>
           </Details>
         </Cover>
@@ -70,7 +72,7 @@ const Product = () => {
                   ))}
                 </OptionsList>
               </SpecItem>
-                  )) ?? '...'}
+            )) ?? '...'}
           </ProductOverviewEl>
         </Spec>
       </Main>

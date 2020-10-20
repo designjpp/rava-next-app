@@ -4,7 +4,8 @@ import {
   FetchSaleProducts,
   FetchCategoryProducts,
   FetchProductById,
-  FetchProductsByIds
+  FetchProductsByIds,
+  FetchAllProducts
 } from '../actions'
 
 type Actions =
@@ -12,18 +13,19 @@ type Actions =
   | FetchCategoryProducts
   | FetchProductById
   | FetchProductsByIds
+  | FetchAllProducts
 
 export interface ProductState {
   saleProducts: Product[]
   categoryProducts: Product[]
   currentProduct?: Product
-  cartProducts: Product[]
+  products: Product[]
 }
 
 export const initialState: ProductState = {
   saleProducts: [],
   categoryProducts: [],
-  cartProducts: [],
+  products: [],
   currentProduct: undefined
 }
 
@@ -36,8 +38,9 @@ function fetchSaleProduts(state: ProductState = initialState, action: Actions) {
       return { ...state, categoryProducts: action.payload }
     case ProductTypes.fetchProductById:
       return { ...state, currentProduct: action.payload }
-    case ProductTypes.fetchProductsByIds:
-      return { ...state, cartProducts: action.payload }
+    case ProductTypes.fetchAllProducts:
+      //console.log(action.payload)
+      return { ...state, products: action.payload }
     default:
       return state
   }

@@ -1,10 +1,15 @@
-import { useSelector } from 'react-redux';
-import { AppState } from '../reducers';
+//import { createSelector } from 'reselect'
+import { useSelector } from 'react-redux'
+import { AppState } from '../reducers'
 
 export const useProductSelector = () =>
-  useSelector((state: AppState) => state.product);
+  useSelector((state: AppState) => state.product)
+
 export const useCategorySelector = () =>
-  useSelector((state: AppState) => state.category);
+  useSelector((state: AppState) => state.category)
 
 export const instagramSelector = () =>
-  useSelector((state: AppState) => state.instagram);
+  useSelector((state: AppState) => state.instagram)
+
+//export const seachSelector = () =>
+//  useSelector((state: AppState) => state.search)

@@ -4,11 +4,12 @@ import Head from 'next/head'
 import { NextSeo, LocalBusinessJsonLd } from 'next-seo'
 import { createStore, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
+import { logger } from "redux-logger";
 import { rootReducer } from '../reducers'
 
 import GlobalStyles from 'styles/base'
 
-const store = createStore(rootReducer, applyMiddleware(thunk))
+const store = createStore(rootReducer, applyMiddleware(thunk, logger))
 
 function App({ Component, pageProps }: AppProps) {
   return (
@@ -74,30 +75,36 @@ function App({ Component, pageProps }: AppProps) {
           href="icons/icon_512x512.7da0e74c4b38e87662b25b231823b1c7.png"
         />
       </Head>
+
       <NextSeo
         title="Rava Cycle"
         description="Bikes, quadros e componentes para os praticantes do ciclismo (urbano, iniciante e intermediário). 🚴‍♀️ 🚴‍♂️"
-        canonical="https://ravacycle.com"
+        canonical={process.env.URL}
         openGraph={{
-          url: 'https://ravacycle.com',
+          url: process.env.URL,
           title:
             'React Avançado - Crie aplicações reais com NextJS, GraphQL e mais.',
           description:
             'Bikes, quadros e componentes para os praticantes do ciclismo (urbano, iniciante e intermediário). 🚴‍♀️ 🚴‍♂️',
-          images: [{ url: '/images/share.png' }],
+          images: [{ 
+            url: `${process.env.URL}/images/share.png`,
+            width: 1024,
+            height: 1024,
+            alt: 'Og Image Alt',
+          }],
           site_name: 'Rava Cycle',
-          locale: 'pt_BR'
+          locale: 'pt_BR',
         }}
         twitter={{
           handle: '@ravacycle',
           site: '@site',
-          cardType: 'summary_large_image'
+          cardType: 'summary_large_image',
         }}
       />
       <LocalBusinessJsonLd
         type="LocalBusiness"
-        id="https://ravacycle.com/#logo"
-        url="https://ravacycle.com"
+        id={`${process.env.URL}/#logo`}
+        url={`${process.env.URL}/images/share.png`}
         name="Rava Cycle"
         description="Bikes, quadros e componentes para os praticantes do ciclismo (urbano, iniciante e intermediário). 🚴‍♀️ 🚴‍♂️"
         telephone="+553332773030"
@@ -113,8 +120,8 @@ function App({ Component, pageProps }: AppProps) {
           longitude: '-41.9927031'
         }}
         images={[
-          'https://ravacycle.com/logo.jpg',
-          'https://ravacycle.com/images/share.png'
+          `${process.env.URL}/images/logo.png`,
+          `${process.env.URL}/images/share.png`
         ]}
         openingHours={[
           {

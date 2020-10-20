@@ -27,22 +27,27 @@ interface ProductListProps {
   products: any;
 }
 
-const Carousel: React.FC<ProductListProps> = ({ products }) => {
-  const settings = {
-    slidesToShow: 5,
-    slidesToScroll: 5,
-    infinite: false,
-    dots: true,
-    lazyLoad: true,
-  }
+const settings = {
+  slidesToShow: 4,
+  slidesToScroll: 4,
+  infinite: false,
+  dots: true,
+  lazyLoad: true,
+}
 
+const Carousel: React.FC<ProductListProps> = ({ products }:ProductListProps) => {
   return (
     <CarouselWrap>
       <CarouselTitleWrap>
         <CarouselTitle>Lançamentos</CarouselTitle>
       </CarouselTitleWrap>
       <Hr />
-      <CarouselLink to="/produtos">Veja todos</CarouselLink>
+      <CarouselLink to="/produtos">
+      <Bcircle aria-hidden="true" >
+      <Bicon />
+    </Bcircle>
+    <BText>Veja todos</BText>
+    </CarouselLink>
       <SwiperStyle>
         <Slider {...settings}>
           {products.map(({ name, id, images, categories, slug }) => (
@@ -98,7 +103,57 @@ const Hr = styled.div`
   background: var(--secondary-800);
   height: 1px;
 `
-export const CarouselLink = styled(Link)`
+const Bcircle =  styled.span`
+transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: relative;
+  display: block;
+  margin: 0;
+  width: 3rem;
+  height: 3rem;
+  background: #282936;
+  border-radius: 1.625rem;
+`
+const Bicon =  styled.span`
+transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background: #fff;
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  left: 0.625rem;
+  width: 1.125rem;
+  height: 0.125rem;
+  background: none;
+  &:before {
+  position: absolute;
+  content: '';
+  top: -0.25rem;
+  right: 0.0625rem;
+  width: 0.625rem;
+  height: 0.625rem;
+  border-top: 0.125rem solid #fff;
+  border-right: 0.125rem solid #fff;
+          transform: rotate(45deg);
+}
+`
+const BText =  styled.span`
+transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0.75rem 0;
+  margin: 0 0 0 1.85rem;
+  color: #282936;
+  font-weight: 700;
+  line-height: 1.6;
+  text-align: center;
+  text-transform: uppercase;
+`
+
+const CarouselLink = styled(Link)`
   grid-area: 1 / 28 / 1 / 30;
   font-size: 15px;
   font-weight: 500;
@@ -116,7 +171,19 @@ export const CarouselLink = styled(Link)`
   overflow: hidden;
   z-index: 10;
 
-  &:after {
+  &:hover ${Bcircle} {
+  width: 100%;
+}
+  &:hover ${Bicon} {
+  background: #fff;
+  -webkit-transform: translate(1rem, 0);
+          transform: translate(1rem, 0);
+  }
+  &:hover ${BText} {
+  color: #fff;
+}
+
+/*  &:after {
     position: absolute;
     content: '';
     width: 0;
@@ -136,5 +203,5 @@ export const CarouselLink = styled(Link)`
   }
   &:active {
     top: 2px;
-  }
+  }*/
 `

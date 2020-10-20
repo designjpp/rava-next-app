@@ -18,7 +18,9 @@ let config = {
     ALGOLIA_INDEX_NAME: process.env.ALGOLIA_INDEX_NAME,
     //social profile
     INSTAGRAM_USERNAME: process.env.INSTAGRAM_USERNAME,
+    // URLS 
     WORDPRESS_API_URL: process.env.WORDPRESS_API_URL,
+    URL: process.env.URL,
     //# # Woocommerce Keys
     CONSUMER_KEY: process.env.CONSUMER_KEY,
     CONSUMER_SECRET: process.env.CONSUMER_SECRET

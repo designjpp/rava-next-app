@@ -22,7 +22,7 @@ interface SliderProps {
 
 const Slide = ({ name, images, categories, id, slug }: SliderProps) => {
   return (
-    <SlideWrap id={id}>
+    <SlideWrap id={id} className="keen-slider__slide">
       <Link href={'/produto/[...produto]'} as={`/produto/${id}/${slug}`}
        /*href={{
         pathname: '/produto/[...produto]',
@@ -36,6 +36,7 @@ const Slide = ({ name, images, categories, id, slug }: SliderProps) => {
         <Img>
           <img
             loading="lazy"
+            //src={loaded[idx] ? src : ""}
             src={images[0].src.replace('scaled.jpg', '800x800.jpg')}
             alt={images[0].alt}
           />
@@ -64,8 +65,12 @@ const Slide = ({ name, images, categories, id, slug }: SliderProps) => {
   )
 }
 export default Slide
+
 const SlideWrap = styled.div`
-  height: 450px;
+position: relative;
+    overflow: hidden;
+    width: 100%;
+    min-height: 450px;
   padding: 20px;
   border: 1px solid var(--secondary-800);
   display: grid;

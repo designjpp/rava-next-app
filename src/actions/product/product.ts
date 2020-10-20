@@ -6,7 +6,8 @@ import {
   FetchSaleProducts,
   FetchCategoryProducts,
   FetchProductById,
-  FetchProductsByIds
+  FetchProductsByIds,
+  FetchAllProducts
 } from './product_interfaces'
 
 export const fetchSaleProducts = (itemCount = 8) => {
@@ -23,6 +24,31 @@ export const fetchSaleProducts = (itemCount = 8) => {
     }
   }
 }
+
+export const fetchProducts = () => {
+  return async (dispatch: Dispatch) => {
+    try {
+      const total = await wooApi(`products?brand=1889`).then((response) => {
+        return response.headers['x-wp-total']
+      }).catch((error) => {
+        // Invalid request, for 4xx and 5xx statuses
+        console.log("Response Status:", error.response.status);
+        console.log("Response Headers:", error.response.headers);
+        console.log("Response Data:", error.response.data);
+      })
+
+      const response = await wooApi(`products?brand=1889&per_page=${total}`)
+
+      dispatch<FetchAllProducts>({
+        type: ProductTypes.fetchAllProducts,
+        payload: response.data
+      })
+    } catch (error) {
+      console.log(error)
+    }
+  }
+}
+
 
 export const fetchCategoryProducts = (
   categoryId: string,
