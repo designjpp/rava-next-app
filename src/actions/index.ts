@@ -7,6 +7,3 @@ export * from './category/category_interfaces';
 export * from './instagram/instagram';
 export * from './instagram/instagram_interfaces';
 
-//export * from './search/search';
-//export * from './search/search_interfaces';
-

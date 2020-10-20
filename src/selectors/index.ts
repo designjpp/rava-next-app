@@ -1,4 +1,3 @@
-//import { createSelector } from 'reselect'
 import { useSelector } from 'react-redux'
 import { AppState } from '../reducers'
 
@@ -11,5 +10,3 @@ export const useCategorySelector = () =>
 export const instagramSelector = () =>
   useSelector((state: AppState) => state.instagram)
 
-//export const seachSelector = () =>
-//  useSelector((state: AppState) => state.search)
