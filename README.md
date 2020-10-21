@@ -31,19 +31,19 @@ Abra [http://localhost:3000](http://localhost:3000) para ver no navegador.
 
 ```
 .env
-WORDPRESS_API_URL=https://grupojpp.com.br/
+WORDPRESS_API_URL=
 
 GOOGLE_ANALYTICS=XXX
-ALGOLIA_APP_ID=ST2C30NRR7
-ALGOLIA_SEARCH_KEY=7de48bdd8f461ea96687faf441be89de
-ALGOLIA_INDEX_NAME=wp_searchable_posts
+ALGOLIA_APP_ID=
+ALGOLIA_SEARCH_KEY=
+ALGOLIA_INDEX_NAME=
 
 # social profile
 INSTAGRAM_PROFILE=ravacycle
 
 # Woocommerce Keys
-CONSUMER_KEY=ck_0a6781c8d841519ec3bb7477bc56dd433295904f
-CONSUMER_SECRET=cs_bc0e5eb9863eecef7534033aeddbabf44e10b8e9
+CONSUMER_KEY=
+CONSUMER_SECRET=
 ```
 
 ### 🔨 How to use
