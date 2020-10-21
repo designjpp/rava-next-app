@@ -2,9 +2,10 @@
   "compilerOptions": {
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
-    "baseUrl": "../",
+    "baseUrl": "./src/",
     "paths": {
-      "@assets/*": ["assets/*"]
+      "public/*": ["public/*"],
+      "style/*": ["styles/*"]
     },
     "allowJs": true,
     "skipLibCheck": true,
@@ -20,5 +21,5 @@
     "noImplicitAny": false
   },
   "exclude": ["node_modules"],
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
+  "include": ["next-env.d.ts", "./src/index.d.ts", "**/*.ts", "**/*.tsx"]
 }
