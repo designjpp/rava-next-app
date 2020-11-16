@@ -83,7 +83,7 @@ function App({ Component, pageProps }: AppProps) {
         openGraph={{
           url: process.env.URL,
           title:
-            'React Avançado - Crie aplicações reais com NextJS, GraphQL e mais.',
+            'Rava Cycle',
           description:
             'Bikes, quadros e componentes para os praticantes do ciclismo (urbano, iniciante e intermediário). 🚴‍♀️ 🚴‍♂️',
           images: [{ 
